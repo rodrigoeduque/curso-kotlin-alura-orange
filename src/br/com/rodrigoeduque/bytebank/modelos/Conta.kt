@@ -1,11 +1,23 @@
 package br.com.rodrigoeduque.bytebank.modelos
 
 abstract class Conta(
-    var titular: String,
+
+
+    var titular: Cliente,
     val numero: Int
 ) {
     var saldo = 0.0
         protected set
+
+    companion object Contador {
+        var totalContas = 0
+            private set
+    }
+
+    init {
+        println("Conta instanciada com sucesso !")
+        totalContas++
+    }
 
     fun deposita(valor: Double) {
         if (valor > 0) {

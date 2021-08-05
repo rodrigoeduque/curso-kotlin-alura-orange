@@ -1,15 +1,46 @@
+import br.com.rodrigoeduque.bytebank.modelos.Cliente
 import br.com.rodrigoeduque.bytebank.modelos.ContaCorrente
 import br.com.rodrigoeduque.bytebank.modelos.ContaPoupanca
+import br.com.rodrigoeduque.bytebank.modelos.Endereco
 
 fun testaContasDiferentes() {
+
+    val endereco = Endereco(
+        logradouro = "Rua Anibal Pereira",
+        numero = 86,
+        bairro = "Centro",
+        cidade = "Romaria",
+        cep = "38520-000",
+        complemento = "Casa"
+    )
+
+    val alex = Cliente(
+        nome = "Alex",
+        cpf = "111.111.111-11",
+        endereco = endereco,
+        senha = 123
+    )
+    val fran = Cliente(
+        nome = "Fran",
+        cpf = "222.222.222-22",
+        senha = 123
+    )
+
     val contaCorrente = ContaCorrente(
-        titular = "Alex",
+        titular = alex,
         numero = 1000
     )
+
+
     val contaPoupanca = ContaPoupanca(
-        titular = "Fran",
+        titular = fran,
         numero = 1001
     )
+
+    println("Titular")
+    println("Nome : ${contaCorrente.titular.nome}")
+    println("CPF : ${contaCorrente.titular.cpf}")
+    println("Endereço : ${contaCorrente.titular.endereco.logradouro} , ${contaCorrente.titular.endereco.numero} - ${contaCorrente.titular.endereco.bairro} / ${contaCorrente.titular.endereco.cidade}")
 
     contaCorrente.deposita(1000.0)
     contaPoupanca.deposita(1000.0)

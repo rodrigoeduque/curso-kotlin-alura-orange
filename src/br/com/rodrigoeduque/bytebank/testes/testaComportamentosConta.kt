@@ -1,11 +1,24 @@
+import br.com.rodrigoeduque.bytebank.modelos.Cliente
 import br.com.rodrigoeduque.bytebank.modelos.ContaCorrente
 import br.com.rodrigoeduque.bytebank.modelos.ContaPoupanca
 
 fun testaComportamentosConta() {
-    val contaAlex = ContaCorrente(titular = "Alex", numero = 1000)
+
+    val alex = Cliente(
+        nome = "Alex",
+        cpf = "111.111.111-11",
+        senha = 123
+    )
+
+    val contaAlex = ContaCorrente(alex, numero = 1000)
     contaAlex.deposita(200.0)
 
-    val contaFran = ContaPoupanca(numero = 1001, titular = "Fran")
+    val fran = Cliente(
+        nome = "Fran",
+        cpf = "222.222.222-22",
+        senha = 123
+    )
+    val contaFran = ContaPoupanca(titular = fran, numero = 1001)
     contaFran.deposita(300.0)
 
     println(contaFran.titular)

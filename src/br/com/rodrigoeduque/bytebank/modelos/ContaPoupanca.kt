@@ -3,7 +3,7 @@ package br.com.rodrigoeduque.bytebank.modelos
 import br.com.rodrigoeduque.bytebank.modelos.Conta
 
 class ContaPoupanca(
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : Conta(
     titular = titular,

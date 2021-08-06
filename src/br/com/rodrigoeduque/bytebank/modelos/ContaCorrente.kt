@@ -15,4 +15,8 @@ class ContaCorrente(
             this.saldo -= valorComTaxa
         }
     }
+
+    override fun autentica(senha: Int): Boolean {
+    return titular.autentica(senha)
+    }
 }

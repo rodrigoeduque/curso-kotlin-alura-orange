@@ -1,19 +1,19 @@
 import br.com.rodrigoeduque.bytebank.modelos.Endereco
+import java.lang.IllegalStateException
 
 fun main() {
 
-    val endereco1 = Endereco(logradouro = "Rua A",numero = 1,bairro = "Centro",cidade = "Udia",estado = "MG",cep = "123",complemento = "casa")
-    val endereco2 = Endereco(logradouro = "Rua B",numero = 1,bairro = "Centro",cidade = "Udia",estado = "MG",cep = "123",complemento = "casa")
+    var endereco: Endereco? = Endereco(logradouro = "Rua Teste")
+    var logradouronovo: String? = endereco?.logradouro
 
-    println()
-    println("HashCode Endereço 1 = ${endereco1.hashCode()}")
-    println()
-    println("HashCode Endereço 2 = ${endereco2.hashCode()}")
-    println()
-    println("Equals (Endereço1 é igual Endereço2 ?) = ${endereco1.equals(endereco2)}")
-    println()
-    println("ToString = ${endereco1.toString()}")
-    println()
-    println("ToString = ${endereco2.toString()}")
+    println(endereco?.logradouro)
+    println(endereco?.logradouro?.length)
 
+
+    endereco?.let {
+        println(it.logradouro.length)
+            val tamanhoComplemento: Int = it.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vazio")
+            println(tamanhoComplemento)
+
+    }
 }

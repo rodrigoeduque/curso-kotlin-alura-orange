@@ -14,4 +14,8 @@ class ContaPoupanca(
             this.saldo -= valor
         }
     }
+
+    override fun autentica(senha: Int): Boolean {
+        return titular.autentica(senha)
+    }
 }

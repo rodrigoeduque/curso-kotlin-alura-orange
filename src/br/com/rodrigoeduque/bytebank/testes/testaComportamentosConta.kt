@@ -1,3 +1,5 @@
+import br.com.rodrigoeduque.bytebank.exceptions.FalhaAutenticacaoException
+import br.com.rodrigoeduque.bytebank.exceptions.SaldoInsuficienteException
 import br.com.rodrigoeduque.bytebank.modelos.Cliente
 import br.com.rodrigoeduque.bytebank.modelos.ContaCorrente
 import br.com.rodrigoeduque.bytebank.modelos.ContaPoupanca
@@ -55,12 +57,31 @@ fun testaComportamentosConta() {
 
     println("Transferência da conta da Fran para o Alex")
 
-    if (contaFran.transfere(destino = contaAlex, valor = 300.0)) {
-        println("Transferência sucedida")
-    } else {
-        println("Falha na transferência")
+
+    try {
+        contaFran.transfere(
+            destino = contaAlex,
+            valor = 150.0,
+            senha = 123
+        )
+        println("Transferencia bem sucedida")
+    } catch (e: SaldoInsuficienteException) {
+        println("Falha na Transferencia")
+        println("Saldo insuficiente")
+        e.printStackTrace()
+    } catch (e: FalhaAutenticacaoException) {
+        println("Falha na Transferencia")
+        println("Senha Inválida")
+        e.printStackTrace()
+    } catch (e: Exception){
+        println("Erro desconhecido")
+        e.printStackTrace()
     }
 
     println(contaAlex.saldo)
     println(contaFran.saldo)
+
+    println()
+    println("------------------------------------------------------------------------------------------------")
+    println("Finalizou o teste")
 }

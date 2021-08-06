@@ -37,3 +37,9 @@
 - Saiba o que o é o Null Safety e os recursos disponíveis
 - Lide com referências nulas e mantenha o código seguro
 ##
+**Kotlin: Desenvolva com coleções, arrays e listas** 📝
+-   Aprenda a declarar, construir, precorrer e alterar Arrays, Ranges e Listas
+-   Saiba como aplicar funções de processamento de coleção para resolver problemas comuns
+-   Entenda como estender as funcionalidades da biblioteca padrão da linguagem, ao criar suas próprias funções
+-   Utilize operações de agregação para manipular coleções
+-   Compreenda a diferença entre coleções mutáveis e imutáveis
